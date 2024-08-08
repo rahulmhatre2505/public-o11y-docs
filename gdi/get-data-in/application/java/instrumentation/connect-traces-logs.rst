@@ -115,7 +115,7 @@ The following examples show how to include additional metadata in log statements
          <configuration>
             <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
                <encoder>
-                  <pattern>%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg trace_id=%X{trace_id} span_id=%X{span_id} service=%X{service.name}, env=%X{deployment.environment} trace_flags=%X{trace_flags} %n</pattern>
+                  <pattern>%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg trace_id=%X{trace_id} span_id=%X{span_id} service.name=%property{otel.resource.service.name} deployment.environment=%property{otel.resource.deployment.environment}%n</pattern>
                </encoder>
             </appender>
             <root level="info">
